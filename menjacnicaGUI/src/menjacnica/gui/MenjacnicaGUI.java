@@ -57,7 +57,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton btnIzbrisiKurs;
 	private JButton btnIzvrsiZamenu;
 	private JScrollPane scrollPane;
-	private JTextArea statusTextArea;
+	private static JTextArea statusTextArea;
 	private JScrollPane scrollPane_1;
 	private JTable table;
 	private JPopupMenu popupMenu;
@@ -222,6 +222,13 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnDodajKurs() {
 		if (btnDodajKurs == null) {
 			btnDodajKurs = new JButton("Dodaj kurs");
+			btnDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DodajKursGUI dodaj = new DodajKursGUI();
+					dodaj.setVisible(true);
+					dodaj.setLocationRelativeTo(frame);
+				}
+			});
 			btnDodajKurs.setPreferredSize(new Dimension(120, 23));
 		}
 		return btnDodajKurs;
@@ -306,6 +313,13 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DodajKursGUI dodaj = new DodajKursGUI();
+					dodaj.setVisible(true);
+					dodaj.setLocationRelativeTo(frame);
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
@@ -320,5 +334,9 @@ public class MenjacnicaGUI extends JFrame {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
 		}
 		return mntmIzvrsiZamenu;
+	}
+	
+	public static void kursUStatus(String text){
+		statusTextArea.append("\n"+ text);
 	}
 }
