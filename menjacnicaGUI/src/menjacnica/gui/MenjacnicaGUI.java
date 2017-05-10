@@ -54,7 +54,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem mntmAbout;
 	private JPanel panel;
 	private JButton btnDodajKurs;
-	private JButton btnIzbrisiKurs;
+	private JButton btnObrisiKurs;
 	private JButton btnIzvrsiZamenu;
 	private JScrollPane scrollPane;
 	private static JTextArea statusTextArea;
@@ -62,7 +62,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JTable table;
 	private JPopupMenu popupMenu;
 	private JMenuItem mntmDodajKurs;
-	private JMenuItem mntmIzbrisiKurs;
+	private JMenuItem mntmObrisiKurs;
 	private JMenuItem mntmIzvrsiZamenu;
 	private static MenjacnicaGUI frame;
 
@@ -214,7 +214,7 @@ public class MenjacnicaGUI extends JFrame {
 			panel.setPreferredSize(new Dimension(130, 10));
 			panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 			panel.add(getBtnDodajKurs());
-			panel.add(getBtnIzbrisiKurs());
+			panel.add(getBtnObrisiKurs());
 			panel.add(getBtnIzvrsiZamenu());
 		}
 		return panel;
@@ -233,12 +233,19 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return btnDodajKurs;
 	}
-	private JButton getBtnIzbrisiKurs() {
-		if (btnIzbrisiKurs == null) {
-			btnIzbrisiKurs = new JButton("Izbrisi kurs");
-			btnIzbrisiKurs.setPreferredSize(new Dimension(120, 23));
+	private JButton getBtnObrisiKurs() {
+		if (btnObrisiKurs == null) {
+			btnObrisiKurs = new JButton("Obrisi kurs");
+			btnObrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ObrisiKursGUI obrisi = new ObrisiKursGUI();
+					obrisi.setVisible(true);
+					obrisi.setLocationRelativeTo(frame);
+				}
+			});
+			btnObrisiKurs.setPreferredSize(new Dimension(120, 23));
 		}
-		return btnIzbrisiKurs;
+		return btnObrisiKurs;
 	}
 	private JButton getBtnIzvrsiZamenu() {
 		if (btnIzvrsiZamenu == null) {
@@ -286,7 +293,7 @@ public class MenjacnicaGUI extends JFrame {
 		if (popupMenu == null) {
 			popupMenu = new JPopupMenu();
 			popupMenu.add(getMntmDodajKurs());
-			popupMenu.add(getMntmIzbrisiKurs());
+			popupMenu.add(getMntmObrisiKurs());
 			popupMenu.add(getMntmIzvrsiZamenu());
 		}
 		return popupMenu;
@@ -323,11 +330,18 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return mntmDodajKurs;
 	}
-	private JMenuItem getMntmIzbrisiKurs() {
-		if (mntmIzbrisiKurs == null) {
-			mntmIzbrisiKurs = new JMenuItem("Izbrisi kurs");
+	private JMenuItem getMntmObrisiKurs() {
+		if (mntmObrisiKurs == null) {
+			mntmObrisiKurs = new JMenuItem("Obrisi kurs");
+			mntmObrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ObrisiKursGUI obrisi = new ObrisiKursGUI();
+					obrisi.setVisible(true);
+					obrisi.setLocationRelativeTo(frame);
+				}
+			});
 		}
-		return mntmIzbrisiKurs;
+		return mntmObrisiKurs;
 	}
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
