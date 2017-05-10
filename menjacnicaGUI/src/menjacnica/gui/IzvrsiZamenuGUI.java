@@ -191,8 +191,8 @@ public class IzvrsiZamenuGUI extends JFrame {
 			btnIzvrsiZamenu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					String text;
-					if(rdbtnKupovina.isSelected()) text = valutaComboBox.getSelectedItem().toString() + "  " +  iznosTextField.getText() + "  Kupovina";
-					else text = valutaComboBox.getSelectedItem().toString() + "  " +  iznosTextField.getText() + "  Prodaja";
+					if(rdbtnKupovina.isSelected()) text = "Valuta: " + valutaComboBox.getSelectedItem().toString() + " Iznos: " +  iznosTextField.getText() + "  Kupovina";
+					else text = "Valuta: " + valutaComboBox.getSelectedItem().toString() + " Iznos: " +  iznosTextField.getText() + "  Prodaja";
 					MenjacnicaGUI.kursUStatus(text);
 					dispose();
 				}
