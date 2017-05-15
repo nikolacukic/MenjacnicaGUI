@@ -94,11 +94,12 @@ public class MenjacnicaGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public MenjacnicaGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/menjacnica/gui/money-flat-money-png-15.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/ikonice/money-flat-money-png-15.png")));
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 733, 448);
 		setJMenuBar(getMenuBar_1());
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -135,6 +136,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmOpen() {
 		if (mntmOpen == null) {
 			mntmOpen = new JMenuItem("Open");
+			mntmOpen.setIcon(new ImageIcon(MenjacnicaGUI.class.getResource("/ikonice/ikonica.png")));
 			mntmOpen.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					String putanja = "";
@@ -152,7 +154,6 @@ public class MenjacnicaGUI extends JFrame {
 					}
 				}
 			});
-			mntmOpen.setIcon(new ImageIcon(MenjacnicaGUI.class.getResource("/menjacnica/gui/ikonica.png")));
 			mntmOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
 		}
 		return mntmOpen;
